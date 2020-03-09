@@ -198,7 +198,10 @@ export function disableClickPropagation(el) {
 // Use it inside listener functions.
 export function preventDefault(e) {
 	if (e.preventDefault) {
-		e.preventDefault();
+		// e.preventDefault();
+		if (e.cancelable) {
+			e.preventDefault();
+		}
 	} else {
 		e.returnValue = false;
 	}
